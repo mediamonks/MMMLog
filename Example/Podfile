@@ -1,0 +1,5 @@
+platform :ios, '13.0'
+
+target 'MMMLogExample' do	
+	pod 'MMMLog', :path => '../'
+end
