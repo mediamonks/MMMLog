@@ -26,11 +26,11 @@ ObjC:
 
 Swift:
 
-    MMMLogInfo(self, "Base URL: \(url)")
+	MMMLogInfo(self, "Base URL: \(url)")
 
 Both will appear like this in Xcode console:
 
-    |17:00:13.11|  - AppDelegate#260  Base URL: https://mediamonks.com/
+	|17:00:13.11|  - AppDelegate#260  Base URL: https://mediamonks.com/
 
 ### Levels
 
@@ -40,17 +40,17 @@ There is additional `MMM_LOG_TRACE_METHOD()`/`MMMLogTraceMethod()` macro/functio
 
 	override func viewDidAppear(_ animated: Bool) {
 		MMMLogTraceMethod(self)
-    ...
+	...
 
 Leading to something like this in Xcode console:
 
-    |17:00:13.15|    ViewController#ad0  Entering viewDidAppear(_:)
+	|17:00:13.15|	 ViewController#ad0	 Entering viewDidAppear(_:)
 
 ### Context
 
 The Obj-C class instance calling a macro or the first parameter of a Swift function are used to identify the "source" or "context" of the message. By default it appears before the message:
 
-    |17:00:13.11|  - AppDelegate#260  Base URL: https://mediamonks.com/
+	|17:00:13.11|  - AppDelegate#260  Base URL: https://mediamonks.com/
 
 It's possible to override the context, see `mmm_instanceNameForLogging` method in Obj-C and/or `MMMLogSource` protocol in Swift.
 
@@ -59,15 +59,15 @@ It's possible to override the context, see `mmm_instanceNameForLogging` method i
 All messages are directed to `NSLog()` by default but this can be overriden with `MMMLogOverrideOutputWithBlock()`/`MMMLogOverrideOutput()` somewhere early on startup, e.g.:
 
 	MMMLogOverrideOutput { (level, context, message) in
-        
-        // OSLog.
-        MMMLogOutputToOSLog(level, context, message)
-        
-        let formattedMessage = MMMLogFormat(level, context, message)
-        
+		
+		// OSLog.
+		MMMLogOutputToOSLog(level, context, message)
+		
+		let formattedMessage = MMMLogFormat(level, context, message)
+		
 		// Crashlytics.
-    	withVaList([formattedMessage]) { CLSLogv("%@", $0) }
-        
+		withVaList([formattedMessage]) { CLSLogv("%@", $0) }
+		
 		// Instabug.
 		switch level {
 		case .trace:
@@ -77,8 +77,9 @@ All messages are directed to `NSLog()` by default but this can be overriden with
 		case .error:
 			IBGLog.logError(formattedMessage)
 		}
-        ...
-    }
+		
+		...
+	}
 
 (See `MMMLogFormat()`, `MMMLogOutputToOSLog()`, `MMMLogOutputToConsole()` helpers.)
 
