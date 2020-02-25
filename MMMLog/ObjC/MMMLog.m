@@ -109,3 +109,57 @@ NSString *_MMMSensitiveInfo(NSString *value, NSInteger maxChars) {
 		return [filler stringByAppendingString:[value substringFromIndex:[value length] - actualCount]];
 	}
 }
+
+#pragma mark - OSLog
+
+#import <OSLog/OSLog.h>
+
+static os_log_type_t _MMMLogOsLogTypeFromLevel(MMMLogLevel level) {
+	switch (level) {
+	case MMMLogLevelTrace:
+		return OS_LOG_TYPE_DEBUG;
+	case MMMLogLevelInfo:
+		return OS_LOG_TYPE_INFO;
+	case MMMLogLevelError:
+		return OS_LOG_TYPE_ERROR;
+	}
+}
+
+void MMMLogOutputToOSLog(MMMLogLevel level, NSString *context, NSString *message) {
+
+	// Assuming that creating `os_log_t` is fast.
+	os_log_t log = os_log_create(
+		// Susystem.
+		[[NSBundle mainBundle].bundleIdentifier UTF8String],
+		// Category.
+		[context UTF8String]
+	);
+	
+
+	os_log_with_type(log, _MMMLogOsLogTypeFromLevel(level), "%{public}@", message);
+}
+
+#pragma mark -
+
+void MMMLogOutputToConsole(MMMLogLevel level, NSString *context, NSString *message) {
+
+	// Date formatters are thread safe, so using just one.
+	static NSDateFormatter *timestampFormatter;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		timestampFormatter = [[NSDateFormatter alloc] init];
+		timestampFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+		timestampFormatter.dateFormat = @"HH:mm:ss.SS";
+		timestampFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+	});
+
+	printf(
+		"%s\n",
+		[[NSString stringWithFormat:@"|%@| %@",
+			[timestampFormatter stringFromDate:[NSDate date]],
+			MMMLogFormat(level, context, message)
+		] UTF8String]
+	);
+}
+
+#pragma mark -

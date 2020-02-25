@@ -1,5 +1,5 @@
 #
-# MMMTemple.
+# MMMLog.
 # Copyright (C) 2020 MediaMonks. All rights reserved.
 #
 

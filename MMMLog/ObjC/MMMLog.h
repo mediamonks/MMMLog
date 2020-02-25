@@ -56,26 +56,43 @@ typedef NS_ENUM(NSInteger, MMMLogLevel) {
  * The main entry point of our simple logging system. The output of our `MMM_LOG_*` macros and corresponding
  * Swift helpers is funneled here.
  *
- * The messages go directly to the console by default, but this can be overriden in the app using
- * `MMMLogOverrideOutputWithBlock()`.
+ * The messages go directly to the console by default (via `NSLog()`), but this can be overriden
+ * in the app using `MMMLogOverrideOutputWithBlock()`.
  *
- * Parameter `context` is a string identifying the source of the log message. Normally it's a name of the corresponding
- * class possibly with a few bits identifying a particular instance outputting the message.
+ * The `context` parameter is a string identifying the source of the log message. Normally it's a name of the
+ * corresponding class possibly with a few bits identifying a particular instance outputting the message.
  */
 extern void MMMLog(MMMLogLevel level, NSString *context, NSString *message) NS_REFINED_FOR_SWIFT;
 
 typedef void (^MMMLogOutputBlock)(MMMLogLevel level, NSString *source, NSString *message);
 
 /**
- * Allows the app to override the default output of MMMLog().
+ * Allows the app to override the default output of `MMMLog()`.
  *
  * Note that there can be only a single override and once it's set the default behaviour is gone. (It's allowed to
  * reset the handler back to nil though.)
  */
 extern void MMMLogOverrideOutputWithBlock(MMMLogOutputBlock _Nullable block) NS_SWIFT_NAME(MMMLogOverrideOutput(_:));
 
-/// Formatter that is used by the default MMMLog() handler. You can use it in your override to match the output.
+/// Formatter that is used by the default `MMMLog()` handler. You can use it in your override to match the output.
 extern NSString *MMMLogFormat(MMMLogLevel level, NSString *context, NSString *message);
+
+/// You can use this with `MMMLogOverrideOutput()` to redirect messages to `OSLog` aka `os_log` aka Apple's unified logging system.
+///
+/// App's bundle ID is going to be used for 'subsystem' and the passed `context` for 'category'.
+extern void MMMLogOutputToOSLog(MMMLogLevel level, NSString *context, NSString *message);
+
+/// Use this with `MMMLogOverrideOutput()` to redirect messages to XCode console in a way similar to `NSLog()` but less noisy.
+///
+/// E.g.:
+/// 	|15:37:20.91|  - AppDelegate#dc0  Initialized
+///
+/// Instead of:
+/// 	2020-02-25 16:37:20.863758+0100 MMMLogExample[56602:2050564]  - AppDelegate#dc0  Initialized
+///
+/// In addition to being less noisy it does not truncate very long messages (unlike `NSLog()` or `CLSNSLogv()`),
+/// so perhaps don't use this in Release builds or make sure to not log unbounded strings.
+extern void MMMLogOutputToConsole(MMMLogLevel level, NSString *context, NSString *message);
 
 /**
  * Used by `MMM_LOG_*` macros to generate a `context` string needed by `MMMLog()` function from the given ObjC object.

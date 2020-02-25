@@ -9,7 +9,7 @@ Very simple logging for iOS.
 Podfile:
 
 ```
-source 'git@github.com:mediamonks/MMMTemple.git'	
+source 'git@github.com:mediamonks/MMMTemple.git'
 ...
 pod 'MMMLog'
 ```
