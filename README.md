@@ -4,7 +4,7 @@ Very simple logging for iOS.
 
 (This is a part of `MMMTemple` suite of iOS libraries we use at [MediaMonks](https://www.mediamonks.com/).)
 
-Splitting a logging framework into "formatters", "loggers", and "entries" makes it appear more flexible and might be a nice excersise in OO design, but is not required in a typical mobile app. We've been using `MMMLog` in several production projects through the years and it was enough.
+Splitting a logging framework into "formatters", "loggers", and "entries" makes it appear more flexible and might be a nice exercise in OO design, but is not required in a typical mobile app. We've been using `MMMLog` in several production projects through the years and it was enough.
 
 ## Installation
 
