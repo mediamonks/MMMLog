@@ -112,9 +112,9 @@ NSString *_MMMSensitiveInfo(NSString *value, NSInteger maxChars) {
 
 #pragma mark - OSLog
 
-#import <OSLog/OSLog.h>
+#import <os/log.h>
 
-static os_log_type_t _MMMLogOsLogTypeFromLevel(MMMLogLevel level) {
+static os_log_type_t _MMMLogOSLogTypeFromLevel(MMMLogLevel level) {
 	switch (level) {
 	case MMMLogLevelTrace:
 		return OS_LOG_TYPE_DEBUG;
@@ -136,7 +136,7 @@ void MMMLogOutputToOSLog(MMMLogLevel level, NSString *context, NSString *message
 	);
 	
 
-	os_log_with_type(log, _MMMLogOsLogTypeFromLevel(level), "%{public}@", message);
+	os_log_with_type(log, _MMMLogOSLogTypeFromLevel(level), "%{public}@", message);
 }
 
 #pragma mark -
