@@ -11,7 +11,8 @@ Splitting a logging framework into "formatters", "loggers", and "entries" makes 
 Podfile:
 
 ```
-source 'git@github.com:mediamonks/MMMTemple.git'
+source 'https://github.com/mediamonks/MMMSpecs.git'
+source 'https://github.com/CocoaPods/Specs.git'
 ...
 pod 'MMMLog'
 ```
