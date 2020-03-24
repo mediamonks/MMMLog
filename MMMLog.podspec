@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
 	
 	s.name = "MMMLog"
-	s.version = "0.4.4"
+	s.version = "0.4.3"
 	s.description = s.summary = "Practical simple logging."
 	s.homepage = "https://github.com/mediamonks/MMMLog"
 	s.license = "MIT"
