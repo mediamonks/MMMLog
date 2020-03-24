@@ -102,6 +102,10 @@ extern void MMMLogOutputToConsole(MMMLogLevel level, NSString *context, NSString
  */
 extern NSString *MMMLogContextFromObject(NSObject *obj) NS_REFINED_FOR_SWIFT;
 
+// To avoid Swift warning about duplicate categories.
+#ifndef MMMLOG_NSOBJECT_EXTENSION
+#define MMMLOG_NSOBJECT_EXTENSION
+
 @interface NSObject (MMMLog)
 
 /**
@@ -118,6 +122,8 @@ extern NSString *MMMLogContextFromObject(NSObject *obj) NS_REFINED_FOR_SWIFT;
 + (NSString *)mmm_instanceNameForLogging;
 
 @end
+
+#endif
 
 /**
  * Outputs a diagnostic (trace) message.
