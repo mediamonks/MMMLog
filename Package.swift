@@ -9,10 +9,7 @@ let package = Package(
     products: [
         .library(
 			name: "MMMLog",
-			targets: [
-				"MMMLogObjC",
-				"MMMLogSwift"
-			]
+			targets: ["MMMLog"]
 		)
     ],
     dependencies: [],
@@ -23,7 +20,7 @@ let package = Package(
 			path: "MMMLog/ObjC"
 		),
         .target(
-			name: "MMMLogSwift",
+			name: "MMMLog",
 			dependencies: ["MMMLogObjC"],
 			path: "MMMLog/Swift"
 		),
