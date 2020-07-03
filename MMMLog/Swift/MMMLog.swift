@@ -5,6 +5,10 @@
 
 import Foundation
 
+#if SWIFT_PACKAGE
+import MMMLogObjC
+#endif
+
 // Swift shim for MMMLog() and friends.
 
 /// It's handy to be able to compare levels when filtering.
