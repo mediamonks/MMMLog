@@ -8,7 +8,7 @@ Splitting a logging framework into "formatters", "loggers", and "entries" makes 
 
 ## Installation
 
-Podfile:
+**Podfile**
 
 ```
 source 'https://github.com/mediamonks/MMMSpecs.git'
@@ -18,6 +18,16 @@ pod 'MMMLog'
 ```
 
 (Use 'MMMLog/ObjC' when Swift wrappers are not needed.)
+
+**Swift Package Manager**
+
+```
+dependencies: [
+    .package(url: "https://github.com/mediamonks/MMMLog", from: "0.5.1")
+]
+```
+
+Or add the dependency through Xcode (> 11.4) by going to `File > Swift Packages > Add Package Dependency...`
 
 ## Usage
 
