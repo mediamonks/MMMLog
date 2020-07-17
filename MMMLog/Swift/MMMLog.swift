@@ -7,6 +7,9 @@ import Foundation
 
 #if SWIFT_PACKAGE
 import MMMLogObjC
+
+@_exported import MMMLogObjC
+
 #endif
 
 // Swift shim for MMMLog() and friends.
