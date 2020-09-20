@@ -16,13 +16,11 @@ let package = Package(
     targets: [
         .target(
 			name: "MMMLogObjC",
-			dependencies: [],
-			path: "MMMLog/ObjC"
+			dependencies: []
 		),
         .target(
 			name: "MMMLog",
-			dependencies: ["MMMLogObjC"],
-			path: "MMMLog/Swift"
+			dependencies: ["MMMLogObjC"]
 		),
     ]
 )
