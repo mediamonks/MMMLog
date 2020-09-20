@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
 
 	s.name = "MMMLog"
-	s.version = "1.0.2"
+	s.version = "1.0.3"
 	s.description = s.summary = "Practical simple logging."
 	s.homepage = "https://github.com/mediamonks/MMMLog"
 	s.license = "MIT"
@@ -23,11 +23,11 @@ Pod::Spec.new do |s|
 	}
 
 	s.subspec 'ObjC' do |ss|
-		ss.source_files = 'MMMLogObjC/**/*'
+		ss.source_files = 'Sources/MMMLogObjC/**/*'
 	end
 
 	s.subspec 'Swift' do |ss|
-		ss.source_files = 'MMMLog/**/*'
+		ss.source_files = 'Sources/MMMLog/**/*'
 		ss.dependency 'MMMLog/ObjC'
 	end
 	
