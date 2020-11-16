@@ -4,7 +4,8 @@ import PackageDescription
 let package = Package(
     name: "MMMLog",
     platforms: [
-        .iOS(.v10),
+        .iOS(.v11),
+        .watchOS(.v2)
     ],
     products: [
         .library(

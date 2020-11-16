@@ -1,5 +1,7 @@
 # MMMLog
 
+[![Build](https://github.com/mediamonks/MMMLog/workflows/Build/badge.svg)](https://github.com/mediamonks/MMMLog/actions?query=workflow%3ABuild)
+
 Very simple logging for iOS.
 
 (This is a part of `MMMTemple` suite of iOS libraries we use at [MediaMonks](https://www.mediamonks.com/).)
@@ -45,7 +47,7 @@ Both will appear like this in Xcode console:
 
 ### Levels
 
-'Trace', 'info', and 'error' versions of these macros/functions are supported (e.g. `MMM_LOG_TRACE()`/`MMLogTrace()`). 
+'Trace', 'info', and 'error' versions of these macros/functions are supported (e.g. `MMM_LOG_TRACE()`/`MMLogTrace()`).
 
 There is additional `MMM_LOG_TRACE_METHOD()`/`MMMLogTraceMethod()` macro/function, tracing the current method/function name:
 
@@ -70,15 +72,15 @@ It's possible to override the context, see `mmm_instanceNameForLogging` method i
 All messages are directed to `NSLog()` by default but this can be overriden with `MMMLogOverrideOutputWithBlock()`/`MMMLogOverrideOutput()` somewhere early on startup, e.g.:
 
 	MMMLogOverrideOutput { (level, context, message) in
-		
+
 		// OSLog.
 		MMMLogOutputToOSLog(level, context, message)
-		
+
 		let formattedMessage = MMMLogFormat(level, context, message)
-		
+
 		// Crashlytics.
 		withVaList([formattedMessage]) { CLSLogv("%@", $0) }
-		
+
 		// Instabug.
 		switch level {
 		case .trace:
@@ -88,7 +90,7 @@ All messages are directed to `NSLog()` by default but this can be overriden with
 		case .error:
 			IBGLog.logError(formattedMessage)
 		}
-		
+
 		...
 	}
 
