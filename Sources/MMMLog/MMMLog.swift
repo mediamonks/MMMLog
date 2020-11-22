@@ -26,13 +26,6 @@ public protocol MMMLogSource {
 	var logContext: String { get }
 }
 
-extension NSObject: MMMLogSource {
-	// Let's keep using ObjC style log source names for ObjC-style objects.
-	@objc open var logContext: String {
-		return __MMMLogContextFromObject(self)
-	}
-}
-
 /// Swift version of `MMMLogContextFromObject()` supporting Swift objects, too.
 public func MMMLogContext(fromObject obj: Any) -> String {
 
@@ -55,9 +48,15 @@ public func MMMLogContext(fromObject obj: Any) -> String {
 
 		// Something of a reference type, let's use type name with some bits derived from the reference to distinguish the instances.
 
-		// TODO: demangle heavily nested types.
+		// Assuming the module name is always included and dropping it.
 		let typeName = String(reflecting: type(of: obj))
-		let instanceName = String(ObjectIdentifier(obj as AnyObject).hashValue & 0xFFF, radix: 16, uppercase: false)
+			.split(separator: ".")
+			// Skipping "(unknown context at $10ccc19fc)".
+			.filter { !($0.hasPrefix("(") && $0.hasSuffix(")")) }
+			// Ignore module names as it's the main module most of the time.
+			.dropFirst()
+			.joined(separator: ".")
+		let instanceName = String(format: "%03x", ObjectIdentifier(obj as AnyObject).hashValue & 0xFFF)
 		return "\(typeName)#\(instanceName)"
 
 	} else  {

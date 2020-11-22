@@ -134,7 +134,6 @@ void MMMLogOutputToOSLog(MMMLogLevel level, NSString *context, NSString *message
 		// Category.
 		[context UTF8String]
 	);
-	
 
 	os_log_with_type(log, _MMMLogOSLogTypeFromLevel(level), "%{public}@", message);
 }
