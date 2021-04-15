@@ -37,14 +37,14 @@ extern void MMMLog(MMMLogLevel level, NSString *context, NSString *message) {
 	if (logOutputBlock) {
 		logOutputBlock(level, context, message);
 	} else {
-		NSLog(@"%@", MMMLogFormat(level, context, message));
+		MMMLogOutputToConsole(level, context, message);
 	}
 }
 
 extern void MMMLogOverrideOutputWithBlock(MMMLogOutputBlock block) {
 
 	if (logOutputBlock != nil && block != nil) {
-		NSCAssert(NO, @"The output of MMMLog() is already overriden");
+		NSCAssert(NO, @"The output of MMMLog() is already overridden");
 		return;
 	}
 
