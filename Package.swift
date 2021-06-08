@@ -17,12 +17,15 @@ let package = Package(
     targets: [
         .target(
 			name: "MMMLogObjC",
-			dependencies: []
+			dependencies: [],
+			cSettings: [
+				.headerSearchPath("")
+			]
 		),
         .target(
 			name: "MMMLog",
 			dependencies: ["MMMLogObjC"]
-		),
+		)
     ]
 )
 
