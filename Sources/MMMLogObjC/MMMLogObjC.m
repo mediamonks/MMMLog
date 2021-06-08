@@ -3,7 +3,7 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
-#import "MMMLog.h"
+#import "MMMLogObjC.h"
 
 NSString *MMMLogFormat(MMMLogLevel level, NSString *context, NSString *message) {
 
