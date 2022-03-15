@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
 
 	s.name = "MMMLog"
-	s.version = "1.2.4"
+	s.version = "1.3.0"
 	s.description = s.summary = "Practical simple logging."
 	s.homepage = "https://github.com/mediamonks/MMMLog"
 	s.license = "MIT"
@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
 
 	s.ios.deployment_target = '11.0'
 	s.watchos.deployment_target = '2.0'
+	s.tvos.deployment_target = '9.0'
+	s.macos.deployment_target = '10.10'
 
 	s.swift_versions = '4.2'
 	s.static_framework = true

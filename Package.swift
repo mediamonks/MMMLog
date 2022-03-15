@@ -5,7 +5,9 @@ let package = Package(
     name: "MMMLog",
     platforms: [
         .iOS(.v11),
-        .watchOS(.v2)
+        .watchOS(.v2),
+        .tvOS(.v9),
+        .macOS(.v10_10)
     ],
     products: [
         .library(
@@ -18,9 +20,7 @@ let package = Package(
         .target(
 			name: "MMMLogObjC",
 			dependencies: [],
-			cSettings: [
-				.headerSearchPath("")
-			]
+			publicHeadersPath: "."
 		),
         .target(
 			name: "MMMLog",
