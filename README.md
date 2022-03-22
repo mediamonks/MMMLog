@@ -23,7 +23,7 @@ pod 'MMMLog'
 
 **Swift Package Manager**
 
-```
+```swift
 dependencies: [
     .package(url: "https://github.com/mediamonks/MMMLog", from: "0.5.1")
 ]
@@ -39,7 +39,9 @@ ObjC:
 
 Swift:
 
-	MMMLogInfo(self, "Base URL: \(url)")
+```swift
+MMMLogInfo(self, "Base URL: \(url)")
+```
 
 Both will appear like this in Xcode console:
 
@@ -51,9 +53,11 @@ Both will appear like this in Xcode console:
 
 There is additional `MMM_LOG_TRACE_METHOD()`/`MMMLogTraceMethod()` macro/function, tracing the current method/function name:
 
-	override func viewDidAppear(_ animated: Bool) {
-		MMMLogTraceMethod(self)
-	...
+```swift
+override func viewDidAppear(_ animated: Bool) {
+	MMMLogTraceMethod(self)
+...
+```
 
 Leading to something like this in Xcode console:
 
@@ -71,29 +75,29 @@ It's possible to override the context, see `mmm_instanceNameForLogging` method i
 
 All messages are directed to `NSLog()` by default but this can be overriden with `MMMLogOverrideOutputWithBlock()`/`MMMLogOverrideOutput()` somewhere early on startup, e.g.:
 
-	MMMLogOverrideOutput { (level, context, message) in
+```swift
+MMMLogOverrideOutput { (level, context, message) in
 
-		// OSLog.
-		MMMLogOutputToOSLog(level, context, message)
+	// OSLog.
+	MMMLogOutputToOSLog(level, context, message)
 
-		let formattedMessage = MMMLogFormat(level, context, message)
+	let formattedMessage = MMMLogFormat(level, context, message)
 
-		// Crashlytics.
-		withVaList([formattedMessage]) { CLSLogv("%@", $0) }
+	// Crashlytics.
+	withVaList([formattedMessage]) { CLSLogv("%@", $0) }
 
-		// Instabug.
-		switch level {
-		case .trace:
-			IBGLog.log(formattedMessage)
-		case .info:
-			IBGLog.logInfo(formattedMessage)
-		case .error:
-			IBGLog.logError(formattedMessage)
-		}
-
-		...
+	// Instabug.
+	switch level {
+	case .trace:
+		IBGLog.log(formattedMessage)
+	case .info:
+		IBGLog.logInfo(formattedMessage)
+	case .error:
+		IBGLog.logError(formattedMessage)
 	}
 
-(See `MMMLogFormat()`, `MMMLogOutputToOSLog()`, `MMMLogOutputToConsole()` helpers.)
+	...
+}
+```
 
----
+(See `MMMLogFormat()`, `MMMLogOutputToOSLog()`, `MMMLogOutputToConsole()` helpers.)
