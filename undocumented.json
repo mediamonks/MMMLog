@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/MMMLog/MMMLog/Sources/MMMLogObjC/MMMLog.h",
+      "line": 67,
+      "symbol": "MMMLogOutputBlock",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/MMMLog/MMMLog/Sources/MMMLogObjC/MMMLog.h",
+      "line": 105,
+      "symbol": "NSObject(MMMLog)",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/MMMLog/MMMLog"
+}
