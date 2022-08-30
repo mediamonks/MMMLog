@@ -9,6 +9,9 @@ NSString *MMMLogFormat(MMMLogLevel level, NSString *context, NSString *message) 
 
 	NSMutableString *r = [[NSMutableString alloc] initWithCapacity:3 + context.length + 2 + message.length];
 
+	// Non-main-thread indicator.
+	[r appendString:NSThread.isMainThread ? @" " : @"'"];
+
 	switch (level) {
 	case MMMLogLevelTrace:
 		[r appendString:@"   "];
@@ -20,7 +23,7 @@ NSString *MMMLogFormat(MMMLogLevel level, NSString *context, NSString *message) 
 		[r appendString:@" ! "];
 		break;
 	}
-
+	
 	[r appendString:context];
 
 	// Two spaces better separate the message from its source.
@@ -154,7 +157,7 @@ void MMMLogOutputToConsole(MMMLogLevel level, NSString *context, NSString *messa
 
 	printf(
 		"%s\n",
-		[[NSString stringWithFormat:@"|%@| %@",
+		[[NSString stringWithFormat:@"|%@|%@",
 			[timestampFormatter stringFromDate:[NSDate date]],
 			MMMLogFormat(level, context, message)
 		] UTF8String]
