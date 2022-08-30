@@ -74,19 +74,10 @@
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMLog">MMMLog</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/MMMLogContext(fromObject:)">MMMLogContext(fromObject:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMLogContextFromObject">MMMLogContextFromObject</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/MMMLogError(_:_:)">MMMLogError(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMLogFormat">MMMLogFormat</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/MMMLogInfo(_:_:)">MMMLogInfo(_:_:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMLogOutputToConsole">MMMLogOutputToConsole</a>
@@ -98,32 +89,10 @@
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMLogOverrideOutputWithBlock">MMMLogOverrideOutputWithBlock</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/MMMLogTrace(_:_:)">MMMLogTrace(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/MMMLogTraceMethod(_:_:)">MMMLogTraceMethod(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:MMMLog.h@F@MMMSensitiveInfo">MMMSensitiveInfo</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@_MMMSensitiveInfo">_MMMSensitiveInfo</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Extensions/MMMLogLevel.html">MMMLogLevel</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/MMMLogSource.html">MMMLogSource</a>
               </li>
             </ul>
           </li>
@@ -163,12 +132,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">MMMLogOutputBlock</span><span class="p">)(</span><span class="n">MMMLogLevel</span> <span class="n">level</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">message</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">MMMLogOutputBlock</span><span class="p">)(</span><span class="n"><a href="Enums/MMMLogLevel.html">MMMLogLevel</a></span> <span class="n">level</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">message</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">MMMLogOutputBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt">MMMLogLevel</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">MMMLogOutputBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Enums/MMMLogLevel.html">MMMLogLevel</a></span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -183,7 +152,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://media.monks.com" target="_blank" rel="external noopener">Media.Monks</a>. All rights reserved. (Last updated: 2022-04-28)</p>
+      <p>&copy; 2022 <a class="link" href="https://media.monks.com" target="_blank" rel="external noopener">Media.Monks</a>. All rights reserved. (Last updated: 2022-08-30)</p>
       <p></p>
     </section>
   </body>

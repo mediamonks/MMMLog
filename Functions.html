@@ -74,19 +74,10 @@
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMLog">MMMLog</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/MMMLogContext(fromObject:)">MMMLogContext(fromObject:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMLogContextFromObject">MMMLogContextFromObject</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/MMMLogError(_:_:)">MMMLogError(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMLogFormat">MMMLogFormat</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/MMMLogInfo(_:_:)">MMMLogInfo(_:_:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMLogOutputToConsole">MMMLogOutputToConsole</a>
@@ -98,32 +89,10 @@
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMLogOverrideOutputWithBlock">MMMLogOverrideOutputWithBlock</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/MMMLogTrace(_:_:)">MMMLogTrace(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/MMMLogTraceMethod(_:_:)">MMMLogTraceMethod(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:MMMLog.h@F@MMMSensitiveInfo">MMMSensitiveInfo</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@_MMMSensitiveInfo">_MMMSensitiveInfo</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Extensions/MMMLogLevel.html">MMMLogLevel</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/MMMLogSource.html">MMMLogSource</a>
               </li>
             </ul>
           </li>
@@ -170,7 +139,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="kt">void</span> <span class="n">MMMLog</span><span class="p">(</span><span class="n">MMMLogLevel</span> <span class="n">level</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">context</span><span class="p">,</span>
+                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="kt">void</span> <span class="n">MMMLog</span><span class="p">(</span><span class="n"><a href="Enums/MMMLogLevel.html">MMMLogLevel</a></span> <span class="n">level</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">context</span><span class="p">,</span>
                    <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">message</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -233,14 +202,14 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">MMMLogFormat</span><span class="p">(</span><span class="n">MMMLogLevel</span> <span class="n">level</span><span class="p">,</span>
+                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">MMMLogFormat</span><span class="p">(</span><span class="n"><a href="Enums/MMMLogLevel.html">MMMLogLevel</a></span> <span class="n">level</span><span class="p">,</span>
                                        <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">context</span><span class="p">,</span>
                                        <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">message</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">MMMLogFormat</span><span class="p">(</span><span class="n">_</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">MMMLogLevel</span><span class="p">,</span> <span class="n">_</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">MMMLogFormat</span><span class="p">(</span><span class="n">_</span> <span class="nv">level</span><span class="p">:</span> <span class="kt"><a href="Enums/MMMLogLevel.html">MMMLogLevel</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -269,13 +238,13 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="kt">void</span> <span class="n">MMMLogOutputToOSLog</span><span class="p">(</span><span class="n">MMMLogLevel</span> <span class="n">level</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">context</span><span class="p">,</span>
+                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="kt">void</span> <span class="n">MMMLogOutputToOSLog</span><span class="p">(</span><span class="n"><a href="Enums/MMMLogLevel.html">MMMLogLevel</a></span> <span class="n">level</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">context</span><span class="p">,</span>
                                 <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">message</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">MMMLogOutputToOSLog</span><span class="p">(</span><span class="n">_</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">MMMLogLevel</span><span class="p">,</span> <span class="n">_</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">MMMLogOutputToOSLog</span><span class="p">(</span><span class="n">_</span> <span class="nv">level</span><span class="p">:</span> <span class="kt"><a href="Enums/MMMLogLevel.html">MMMLogLevel</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -311,13 +280,13 @@ so perhaps don&rsquo;t use this in Release builds or make sure to not log unboun
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="kt">void</span> <span class="n">MMMLogOutputToConsole</span><span class="p">(</span><span class="n">MMMLogLevel</span> <span class="n">level</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">context</span><span class="p">,</span>
+                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="kt">void</span> <span class="n">MMMLogOutputToConsole</span><span class="p">(</span><span class="n"><a href="Enums/MMMLogLevel.html">MMMLogLevel</a></span> <span class="n">level</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">context</span><span class="p">,</span>
                                   <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">message</span><span class="p">)</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">MMMLogOutputToConsole</span><span class="p">(</span><span class="n">_</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">MMMLogLevel</span><span class="p">,</span> <span class="n">_</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">MMMLogOutputToConsole</span><span class="p">(</span><span class="n">_</span> <span class="nv">level</span><span class="p">:</span> <span class="kt"><a href="Enums/MMMLogLevel.html">MMMLogLevel</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -422,101 +391,6 @@ The strings are returned unchanged in Debug, but only the first maxChars charact
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/"></a>
-                    <a name="//apple_ref/swift/Function/MMMLogContext(fromObject:)" class="dashAnchor"></a>
-                    <a class="token" href="#/">MMMLogContext(fromObject:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Swift version of <code>MMMLogContextFromObject()</code> supporting Swift objects, too.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/"></a>
-                    <a name="//apple_ref/swift/Function/MMMLogTrace(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/">MMMLogTrace(_:<wbr>_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Swift version of <code>MMM_LOG_TRACE()</code> macro, though is not a subject of Release/Debug filtering.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/"></a>
-                    <a name="//apple_ref/swift/Function/MMMLogInfo(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/">MMMLogInfo(_:<wbr>_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Swift version of <code>MMM_LOG_INFO()</code> macro.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/"></a>
-                    <a name="//apple_ref/swift/Function/MMMLogError(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/">MMMLogError(_:<wbr>_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Swift version of <code>MMM_LOG_ERROR()</code> macro.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/"></a>
-                    <a name="//apple_ref/swift/Function/MMMLogTraceMethod(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/">MMMLogTraceMethod(_:<wbr>_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Prints the name of the current function, Swift version of <code>MMM_LOG_TRACE_METHOD()</code> macro.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
               </ul>
             </div>
           </div>
@@ -525,7 +399,7 @@ The strings are returned unchanged in Debug, but only the first maxChars charact
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://media.monks.com" target="_blank" rel="external noopener">Media.Monks</a>. All rights reserved. (Last updated: 2022-04-28)</p>
+      <p>&copy; 2022 <a class="link" href="https://media.monks.com" target="_blank" rel="external noopener">Media.Monks</a>. All rights reserved. (Last updated: 2022-08-30)</p>
       <p></p>
     </section>
   </body>
