@@ -155,13 +155,24 @@ void MMMLogOutputToConsole(MMMLogLevel level, NSString *context, NSString *messa
 		timestampFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
 	});
 
-	printf(
-		"%s\n",
-		[[NSString stringWithFormat:@"|%@|%@",
-			[timestampFormatter stringFromDate:[NSDate date]],
-			MMMLogFormat(level, context, message)
-		] UTF8String]
-	);
+	const char* utf8 = [[NSString
+		stringWithFormat:@"|%@|%@\n",
+		[timestampFormatter stringFromDate:[NSDate date]],
+		MMMLogFormat(level, context, message)
+	] UTF8String];
+	size_t length = strlen(utf8);
+
+	while (length > 0) {
+		int result = write(STDOUT_FILENO, utf8, length);
+		if (result < 0 && errno != EINTR) {
+			break;
+		} else if (result == 0) {
+			break;
+		} else {
+			utf8 += result;
+			length -= result;
+		}
+	}
 }
 
 #pragma mark -
