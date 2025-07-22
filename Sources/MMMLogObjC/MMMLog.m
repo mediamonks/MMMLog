@@ -66,12 +66,12 @@ static NSString *MMMPlainClassName(Class cls) {
 	}
 }
 
-extern NSString *MMMLogContextFromObject(NSObject *obj) {
+extern NSString *MMMLogContextFromObject(id obj) {
 	NSString *instanceName = [obj mmm_instanceNameForLogging];
 	if ([instanceName length] > 0)
-		return [NSString stringWithFormat:@"%@#%@", MMMPlainClassName(obj.class), instanceName];
+		return [NSString stringWithFormat:@"%@#%@", MMMPlainClassName([obj class]), instanceName];
 	else
-		return MMMPlainClassName(obj.class);
+		return MMMPlainClassName([obj class]);
 }
 
 //
@@ -79,17 +79,17 @@ extern NSString *MMMLogContextFromObject(NSObject *obj) {
 //
 @implementation NSObject (MMMUtilLogging)
 
-static NSString *MMMLastFewDigitsOfAddresss(id obj) {
-	uint32_t partialAddress = (uint32_t)(__bridge void *)obj;
+static NSString *MMMLastFewDigitsOfAddress(id obj) {
+	NSInteger partialAddress = (NSInteger)(__bridge void *)obj;
 	return [NSString stringWithFormat:@"%x", (int)(partialAddress & 0xFFF)];
 }
 
 - (NSString *)mmm_instanceNameForLogging {
-	return MMMLastFewDigitsOfAddresss(self);
+	return MMMLastFewDigitsOfAddress(self);
 }
 
 + (NSString *)mmm_instanceNameForLogging {
-	return MMMLastFewDigitsOfAddresss(self);
+	return MMMLastFewDigitsOfAddress(self);
 }
 
 @end
@@ -163,7 +163,7 @@ void MMMLogOutputToConsole(MMMLogLevel level, NSString *context, NSString *messa
 	size_t length = strlen(utf8);
 
 	while (length > 0) {
-		int result = write(STDOUT_FILENO, utf8, length);
+		ssize_t result = write(STDOUT_FILENO, utf8, length);
 		if (result < 0 && errno != EINTR) {
 			break;
 		} else if (result == 0) {

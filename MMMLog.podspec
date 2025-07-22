@@ -1,12 +1,12 @@
 #
-# MMMLog.
-# Copyright (C) 2020 MediaMonks. All rights reserved.
+# MMMLog. Part of MMMTemple.
+# Copyright (C) 2020-2025 Monks. All rights reserved.
 #
 
 Pod::Spec.new do |s|
 
 	s.name = "MMMLog"
-	s.version = "1.4.1"
+	s.version = "1.4.2"
 	s.description = s.summary = "Practical simple logging."
 	s.homepage = "https://github.com/mediamonks/MMMLog"
 	s.license = "MIT"

@@ -100,7 +100,7 @@ extern void MMMLogOutputToConsole(MMMLogLevel level, NSString *context, NSString
  * The implementation uses class name with a bit of extra context returned by the object's
  * `mmm_instanceNameForLogging` method.
  */
-extern NSString *MMMLogContextFromObject(NSObject *obj) NS_REFINED_FOR_SWIFT;
+extern NSString *MMMLogContextFromObject(id obj) NS_REFINED_FOR_SWIFT;
 
 @interface NSObject (MMMLog)
 
